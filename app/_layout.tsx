@@ -1,12 +1,13 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Stack } from "expo-router";
-import React from "react";
+import React, { useEffect } from "react";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { StyleSheet } from "react-native";
 
 import { AppProvider } from "@/contexts/AppContext";
 import { ErrorBoundary } from "@/components/ErrorBoundary";
 import { StatusBar } from "expo-status-bar";
+import { initializeFirebase } from "@/utils/firebase";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -39,6 +40,16 @@ function RootLayoutNav() {
 }
 
 export default function RootLayout() {
+  useEffect(() => {
+    console.log('[RootLayout] Initializing Firebase...');
+    try {
+      initializeFirebase();
+      console.log('[RootLayout] Firebase initialized successfully');
+    } catch (error) {
+      console.error('[RootLayout] Error initializing Firebase:', error);
+    }
+  }, []);
+
   return (
     <ErrorBoundary>
       <QueryClientProvider client={queryClient}>
