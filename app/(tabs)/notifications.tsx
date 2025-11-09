@@ -258,7 +258,7 @@ export default function NotificationsScreen() {
 const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
-    backgroundColor: '#f9fafb',
+    backgroundColor: '#1a1a1a',
   },
   container: {
     flex: 1,
@@ -275,12 +275,12 @@ const styles = StyleSheet.create({
   emptyTitle: {
     fontSize: 20,
     fontWeight: '600' as const,
-    color: '#111827',
+    color: '#ffffff',
     marginTop: 16,
   },
   emptyText: {
     fontSize: 14,
-    color: '#6b7280',
+    color: 'rgba(255, 255, 255, 0.7)',
     marginTop: 8,
     textAlign: 'center' as const,
   },
@@ -299,12 +299,12 @@ const styles = StyleSheet.create({
   dateText: {
     fontSize: 14,
     fontWeight: '600' as const,
-    color: '#374151',
+    color: 'rgba(255, 255, 255, 0.9)',
     marginLeft: 8,
     flex: 1,
   },
   dateBadge: {
-    backgroundColor: '#2563eb',
+    backgroundColor: '#4F7DFF',
     borderRadius: 12,
     paddingHorizontal: 8,
     paddingVertical: 2,
@@ -317,21 +317,24 @@ const styles = StyleSheet.create({
     color: '#ffffff',
   },
   notificationCard: {
-    backgroundColor: '#ffffff',
+    backgroundColor: 'rgba(79, 125, 255, 0.1)',
     borderRadius: 12,
     marginBottom: 12,
     overflow: 'hidden',
     flexDirection: 'row',
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.05,
-    shadowRadius: 2,
-    elevation: 2,
+    borderWidth: 1,
+    borderColor: 'rgba(79, 125, 255, 0.3)',
+    shadowColor: '#4F7DFF',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.2,
+    shadowRadius: 3,
+    elevation: 3,
   },
   notificationCardUnread: {
-    shadowOpacity: 0.1,
+    backgroundColor: 'rgba(79, 125, 255, 0.15)',
+    shadowOpacity: 0.3,
     shadowRadius: 4,
-    elevation: 3,
+    elevation: 4,
   },
   notificationIndicator: {
     width: 4,
@@ -349,7 +352,7 @@ const styles = StyleSheet.create({
     width: 32,
     height: 32,
     borderRadius: 16,
-    backgroundColor: '#f3f4f6',
+    backgroundColor: 'rgba(79, 125, 255, 0.2)',
     justifyContent: 'center',
     alignItems: 'center',
     marginRight: 12,
@@ -360,16 +363,16 @@ const styles = StyleSheet.create({
   notificationTitle: {
     fontSize: 15,
     fontWeight: '500' as const,
-    color: '#374151',
+    color: 'rgba(255, 255, 255, 0.8)',
     marginBottom: 2,
   },
   notificationTitleUnread: {
     fontWeight: '600' as const,
-    color: '#111827',
+    color: '#ffffff',
   },
   notificationTime: {
     fontSize: 12,
-    color: '#9ca3af',
+    color: 'rgba(255, 255, 255, 0.5)',
   },
   deleteButton: {
     padding: 4,
@@ -377,11 +380,11 @@ const styles = StyleSheet.create({
   },
   notificationMessage: {
     fontSize: 14,
-    color: '#6b7280',
+    color: 'rgba(255, 255, 255, 0.7)',
     lineHeight: 20,
   },
   notificationMessageUnread: {
-    color: '#374151',
+    color: 'rgba(255, 255, 255, 0.9)',
   },
   unreadDot: {
     position: 'absolute',
