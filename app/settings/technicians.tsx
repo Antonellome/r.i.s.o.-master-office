@@ -216,7 +216,7 @@ export default function TechniciansManagementScreen() {
           style={styles.fab}
           onPress={() => {
             console.log('FAB pressed - navigating to create');
-            router.push('/settings/technicians/create' as any);
+            router.push('/settings/technicians/create');
           }}
         >
           <Plus size={24} color="#ffffff" />

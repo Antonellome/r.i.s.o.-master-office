@@ -282,7 +282,7 @@ export default function CreateTechnicianScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f9fafb',
+    backgroundColor: '#1a1a1a',
   },
   scrollView: {
     flex: 1,
@@ -292,15 +292,17 @@ const styles = StyleSheet.create({
     paddingBottom: 100,
   },
   section: {
-    backgroundColor: '#ffffff',
+    backgroundColor: 'rgba(79, 125, 255, 0.15)',
     borderRadius: 12,
     padding: 16,
     marginBottom: 16,
+    borderWidth: 1,
+    borderColor: 'rgba(79, 125, 255, 0.3)',
   },
   sectionTitle: {
     fontSize: 18,
     fontWeight: '700' as const,
-    color: '#111827',
+    color: '#ffffff',
     marginBottom: 16,
   },
   field: {
@@ -309,17 +311,17 @@ const styles = StyleSheet.create({
   label: {
     fontSize: 14,
     fontWeight: '600' as const,
-    color: '#374151',
+    color: 'rgba(255, 255, 255, 0.9)',
     marginBottom: 8,
   },
   input: {
-    backgroundColor: '#f9fafb',
-    borderWidth: 1,
-    borderColor: '#e5e7eb',
+    backgroundColor: 'rgba(79, 125, 255, 0.1)',
+    borderWidth: 2,
+    borderColor: 'rgba(79, 125, 255, 0.3)',
     borderRadius: 8,
     padding: 12,
     fontSize: 16,
-    color: '#111827',
+    color: '#ffffff',
   },
   row: {
     flexDirection: 'row',
@@ -333,14 +335,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingVertical: 12,
     borderBottomWidth: 1,
-    borderBottomColor: '#f3f4f6',
+    borderBottomColor: 'rgba(79, 125, 255, 0.2)',
   },
   checkbox: {
     width: 24,
     height: 24,
     borderRadius: 6,
     borderWidth: 2,
-    borderColor: '#d1d5db',
+    borderColor: 'rgba(79, 125, 255, 0.5)',
     marginRight: 12,
     alignItems: 'center',
     justifyContent: 'center',
@@ -357,12 +359,12 @@ const styles = StyleSheet.create({
   },
   checkboxLabel: {
     fontSize: 16,
-    color: '#374151',
+    color: '#ffffff',
     flex: 1,
   },
   emptyText: {
     fontSize: 14,
-    color: '#9ca3af',
+    color: 'rgba(255, 255, 255, 0.5)',
     fontStyle: 'italic' as const,
     textAlign: 'center' as const,
     paddingVertical: 20,
@@ -375,9 +377,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     gap: 12,
     padding: 16,
-    backgroundColor: '#ffffff',
+    backgroundColor: '#1a1a1a',
     borderTopWidth: 1,
-    borderTopColor: '#e5e7eb',
+    borderTopColor: 'rgba(79, 125, 255, 0.3)',
   },
   button: {
     flex: 1,
@@ -389,14 +391,13 @@ const styles = StyleSheet.create({
     borderRadius: 12,
   },
   cancelButton: {
-    backgroundColor: 'transparent',
-    borderWidth: 1,
-    borderColor: '#d1d5db',
+    backgroundColor: 'rgba(79, 125, 255, 0.2)',
+    borderWidth: 0,
   },
   cancelButtonText: {
     fontSize: 16,
     fontWeight: '600' as const,
-    color: '#6b7280',
+    color: 'rgba(255, 255, 255, 0.9)',
   },
   saveButton: {
     backgroundColor: '#2563eb',
