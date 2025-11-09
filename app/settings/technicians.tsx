@@ -98,7 +98,7 @@ export default function TechniciansManagementScreen() {
           options={{
             headerShown: true,
             title: 'Gestione Tecnici',
-            headerStyle: { backgroundColor: '#2563eb' },
+            headerStyle: { backgroundColor: '#4F7DFF' },
             headerTintColor: '#ffffff',
             headerTitleStyle: { fontWeight: '700' as const },
           }}
@@ -116,7 +116,7 @@ export default function TechniciansManagementScreen() {
         options={{
           headerShown: true,
           title: 'Gestione Tecnici',
-          headerStyle: { backgroundColor: '#2563eb' },
+          headerStyle: { backgroundColor: '#4F7DFF' },
           headerTintColor: '#ffffff',
           headerTitleStyle: { fontWeight: '700' as const },
         }}
@@ -272,33 +272,33 @@ export default function TechniciansManagementScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f9fafb',
+    backgroundColor: '#1a1a1a',
   },
   loadingContainer: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#f9fafb',
+    backgroundColor: '#1a1a1a',
   },
   loadingText: {
     fontSize: 16,
-    color: '#6b7280',
+    color: 'rgba(255, 255, 255, 0.7)',
   },
   header: {
-    backgroundColor: '#ffffff',
+    backgroundColor: 'rgba(79, 125, 255, 0.15)',
     padding: 20,
     borderBottomWidth: 1,
-    borderBottomColor: '#e5e7eb',
+    borderBottomColor: 'rgba(79, 125, 255, 0.3)',
   },
   headerTitle: {
     fontSize: 24,
     fontWeight: '700' as const,
-    color: '#111827',
+    color: '#ffffff',
     marginBottom: 4,
   },
   headerSubtitle: {
     fontSize: 14,
-    color: '#6b7280',
+    color: 'rgba(255, 255, 255, 0.7)',
   },
   scrollView: {
     flex: 1,
@@ -314,24 +314,19 @@ const styles = StyleSheet.create({
   emptyStateTitle: {
     fontSize: 20,
     fontWeight: '600' as const,
-    color: '#374151',
+    color: 'rgba(255, 255, 255, 0.9)',
     marginBottom: 8,
   },
   emptyStateText: {
     fontSize: 14,
-    color: '#6b7280',
+    color: 'rgba(255, 255, 255, 0.7)',
     textAlign: 'center' as const,
   },
   configCard: {
-    backgroundColor: '#ffffff',
+    backgroundColor: '#2563eb',
     borderRadius: 16,
     padding: 16,
     marginBottom: 16,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.05,
-    shadowRadius: 8,
-    elevation: 2,
   },
   configHeader: {
     marginBottom: 12,
@@ -345,7 +340,7 @@ const styles = StyleSheet.create({
   configName: {
     fontSize: 18,
     fontWeight: '700' as const,
-    color: '#111827',
+    color: '#ffffff',
     flex: 1,
   },
   statusBadge: {
@@ -371,16 +366,16 @@ const styles = StyleSheet.create({
   },
   configCompany: {
     fontSize: 14,
-    color: '#6b7280',
+    color: 'rgba(255, 255, 255, 0.8)',
     marginBottom: 2,
   },
   configUserId: {
     fontSize: 12,
-    color: '#9ca3af',
+    color: 'rgba(255, 255, 255, 0.6)',
   },
   configDetails: {
     borderTopWidth: 1,
-    borderTopColor: '#e5e7eb',
+    borderTopColor: 'rgba(255, 255, 255, 0.2)',
     paddingTop: 12,
     marginBottom: 12,
   },
@@ -389,13 +384,13 @@ const styles = StyleSheet.create({
   },
   codeLabel: {
     fontSize: 12,
-    color: '#6b7280',
+    color: 'rgba(255, 255, 255, 0.7)',
     marginBottom: 6,
   },
   codeValueContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#f3f4f6',
+    backgroundColor: 'rgba(255, 255, 255, 0.15)',
     borderRadius: 8,
     padding: 12,
   },
@@ -403,7 +398,7 @@ const styles = StyleSheet.create({
     flex: 1,
     fontSize: 16,
     fontWeight: '600' as const,
-    color: '#2563eb',
+    color: '#ffffff',
     letterSpacing: 1,
   },
   copyButton: {
@@ -416,7 +411,7 @@ const styles = StyleSheet.create({
   },
   configInfoText: {
     fontSize: 12,
-    color: '#6b7280',
+    color: 'rgba(255, 255, 255, 0.7)',
   },
   configActions: {
     flexDirection: 'row',
@@ -425,7 +420,7 @@ const styles = StyleSheet.create({
   },
   actionButton: {
     flex: 1,
-    backgroundColor: '#2563eb',
+    backgroundColor: '#4F7DFF',
     borderRadius: 8,
     paddingVertical: 10,
     alignItems: 'center',
@@ -453,10 +448,10 @@ const styles = StyleSheet.create({
     width: 64,
     height: 64,
     borderRadius: 32,
-    backgroundColor: '#2563eb',
+    backgroundColor: '#4F7DFF',
     justifyContent: 'center',
     alignItems: 'center',
-    shadowColor: '#2563eb',
+    shadowColor: '#4F7DFF',
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.3,
     shadowRadius: 12,
@@ -480,7 +475,7 @@ const styles = StyleSheet.create({
   modalTitle: {
     fontSize: 22,
     fontWeight: '700' as const,
-    color: '#111827',
+    color: '#1a1a1a',
     marginBottom: 8,
   },
   modalSubtitle: {
@@ -494,12 +489,12 @@ const styles = StyleSheet.create({
   modalCode: {
     fontSize: 20,
     fontWeight: '700' as const,
-    color: '#2563eb',
+    color: '#4F7DFF',
     letterSpacing: 2,
     marginBottom: 24,
   },
   modalCloseButton: {
-    backgroundColor: '#2563eb',
+    backgroundColor: '#4F7DFF',
     borderRadius: 12,
     paddingVertical: 14,
     paddingHorizontal: 32,

@@ -66,7 +66,7 @@ export default function SettingsScreen() {
       <Stack.Screen options={{ 
         headerShown: true,
         title: 'Impostazioni',
-        headerStyle: { backgroundColor: '#2563eb' },
+        headerStyle: { backgroundColor: '#4F7DFF' },
         headerTintColor: '#ffffff',
         headerTitleStyle: { fontWeight: '700' as const },
       }} />
@@ -81,7 +81,7 @@ export default function SettingsScreen() {
               activeOpacity={0.7}
             >
               <View style={styles.menuItemIcon}>
-                <item.icon size={24} color="#2563eb" />
+                <item.icon size={24} color="#ffffff" />
               </View>
               <View style={styles.menuItemContent}>
                 <Text style={styles.menuItemTitle}>{item.title}</Text>
@@ -106,7 +106,7 @@ export default function SettingsScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f9fafb',
+    backgroundColor: '#1a1a1a',
   },
   menuList: {
     padding: 16,
@@ -114,21 +114,16 @@ const styles = StyleSheet.create({
   menuItem: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#ffffff',
+    backgroundColor: '#2563eb',
     borderRadius: 16,
     padding: 16,
     marginBottom: 12,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.05,
-    shadowRadius: 2,
-    elevation: 2,
   },
   menuItemIcon: {
     width: 48,
     height: 48,
     borderRadius: 12,
-    backgroundColor: '#eff6ff',
+    backgroundColor: 'rgba(255, 255, 255, 0.2)',
     justifyContent: 'center',
     alignItems: 'center',
     marginRight: 16,
@@ -139,19 +134,19 @@ const styles = StyleSheet.create({
   menuItemTitle: {
     fontSize: 16,
     fontWeight: '600' as const,
-    color: '#111827',
+    color: '#ffffff',
     marginBottom: 4,
   },
   menuItemSubtitle: {
     fontSize: 13,
-    color: '#6b7280',
+    color: 'rgba(255, 255, 255, 0.8)',
   },
   menuItemArrow: {
     marginLeft: 8,
   },
   arrowText: {
     fontSize: 28,
-    color: '#9ca3af',
+    color: 'rgba(255, 255, 255, 0.6)',
     fontWeight: '300' as const,
   },
   footer: {
@@ -160,7 +155,7 @@ const styles = StyleSheet.create({
   },
   footerText: {
     fontSize: 12,
-    color: '#9ca3af',
+    color: 'rgba(255, 255, 255, 0.5)',
     fontStyle: 'italic' as const,
   },
 });
