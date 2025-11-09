@@ -14,12 +14,13 @@ export default function TabLayout() {
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: "#ffffff",
-        tabBarInactiveTintColor: "rgba(255, 255, 255, 0.6)",
+        tabBarActiveTintColor: "#2563eb",
+        tabBarInactiveTintColor: "#6b7280",
         headerShown: false,
         tabBarStyle: {
-          backgroundColor: '#2563eb',
-          borderTopWidth: 0,
+          backgroundColor: '#ffffff',
+          borderTopWidth: 1,
+          borderTopColor: '#e5e7eb',
         },
         tabBarItemStyle: {
           paddingBottom: 4,
@@ -37,7 +38,7 @@ export default function TabLayout() {
           headerShown: false,
           tabBarIcon: ({ focused, size }) => (
             <View style={[styles.iconContainer, focused && styles.iconContainerActive]}>
-              <Home color={focused ? '#2563eb' : 'rgba(255, 255, 255, 0.6)'} size={size} />
+              <Home color={focused ? '#ffffff' : '#2563eb'} size={size} />
             </View>
           ),
           tabBarLabel: "Home",
@@ -49,7 +50,7 @@ export default function TabLayout() {
           headerShown: false,
           tabBarIcon: ({ focused, size }) => (
             <View style={[styles.iconContainer, focused && styles.iconContainerActive]}>
-              <FileText color={focused ? '#2563eb' : 'rgba(255, 255, 255, 0.6)'} size={size} />
+              <FileText color={focused ? '#ffffff' : '#2563eb'} size={size} />
             </View>
           ),
           tabBarLabel: "Report",
@@ -61,7 +62,7 @@ export default function TabLayout() {
           headerShown: false,
           tabBarIcon: ({ focused, size }) => (
             <View style={[styles.iconContainer, focused && styles.iconContainerActive]}>
-              <Search color={focused ? '#2563eb' : 'rgba(255, 255, 255, 0.6)'} size={size} />
+              <Search color={focused ? '#ffffff' : '#2563eb'} size={size} />
             </View>
           ),
           tabBarLabel: "Cerca",
@@ -73,7 +74,7 @@ export default function TabLayout() {
           headerShown: false,
           tabBarIcon: ({ focused, size }) => (
             <View style={[styles.iconContainer, focused && styles.iconContainerActive]}>
-              <Bell color={focused ? '#2563eb' : 'rgba(255, 255, 255, 0.6)'} size={size} />
+              <Bell color={focused ? '#ffffff' : '#2563eb'} size={size} />
               {unreadCount > 0 && (
                 <View style={styles.badge}>
                   <Text style={styles.badgeText}>
@@ -92,7 +93,7 @@ export default function TabLayout() {
           headerShown: false,
           tabBarIcon: ({ focused, size }) => (
             <View style={[styles.iconContainer, focused && styles.iconContainerActive]}>
-              <Settings color={focused ? '#2563eb' : 'rgba(255, 255, 255, 0.6)'} size={size} />
+              <Settings color={focused ? '#ffffff' : '#2563eb'} size={size} />
             </View>
           ),
           tabBarLabel: "Impostazioni",
@@ -111,7 +112,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   iconContainerActive: {
-    backgroundColor: '#ffffff',
+    backgroundColor: '#2563eb',
   },
   badge: {
     position: 'absolute',

@@ -57,7 +57,7 @@ export default function UserInfoScreen() {
       <Stack.Screen options={{ 
         headerShown: true,
         title: 'Info Utente',
-        headerStyle: { backgroundColor: '#4F7DFF' },
+        headerStyle: { backgroundColor: '#2563eb' },
         headerTintColor: '#ffffff',
         headerTitleStyle: { fontWeight: '700' as const },
       }} />
@@ -142,7 +142,7 @@ export default function UserInfoScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#1a1a1a',
+    backgroundColor: '#f9fafb',
   },
   scrollView: {
     flex: 1,
@@ -160,18 +160,18 @@ const styles = StyleSheet.create({
   label: {
     fontSize: 14,
     fontWeight: '600' as const,
-    color: 'rgba(255, 255, 255, 0.9)',
+    color: '#374151',
     marginBottom: 8,
   },
   input: {
-    backgroundColor: 'rgba(79, 125, 255, 0.15)',
+    backgroundColor: '#ffffff',
     borderRadius: 12,
     borderWidth: 2,
-    borderColor: 'rgba(79, 125, 255, 0.3)',
+    borderColor: '#d1d5db',
     paddingHorizontal: 16,
     height: 48,
     fontSize: 16,
-    color: '#ffffff',
+    color: '#111827',
   },
   buttonContainer: {
     flexDirection: 'row',
@@ -180,7 +180,7 @@ const styles = StyleSheet.create({
   },
   cancelButton: {
     flex: 1,
-    backgroundColor: 'rgba(255, 255, 255, 0.1)',
+    backgroundColor: '#f3f4f6',
     borderRadius: 12,
     paddingVertical: 16,
     alignItems: 'center',
@@ -189,14 +189,14 @@ const styles = StyleSheet.create({
   cancelButtonText: {
     fontSize: 16,
     fontWeight: '600' as const,
-    color: 'rgba(255, 255, 255, 0.8)',
+    color: '#374151',
   },
   saveButton: {
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#4F7DFF',
+    backgroundColor: '#2563eb',
     borderRadius: 12,
     paddingVertical: 16,
     gap: 8,
@@ -215,7 +215,7 @@ const styles = StyleSheet.create({
   },
   footerText: {
     fontSize: 12,
-    color: 'rgba(255, 255, 255, 0.5)',
+    color: '#9ca3af',
     fontStyle: 'italic' as const,
   },
 });

@@ -1083,7 +1083,7 @@ export default function ReportsScreen() {
       <Stack.Screen options={{ 
         headerShown: true,
         title: 'Report',
-        headerStyle: { backgroundColor: '#4F7DFF' },
+        headerStyle: { backgroundColor: '#2563eb' },
         headerTintColor: '#ffffff',
         headerTitleStyle: { fontWeight: '700' as const },
       }} />
@@ -1316,7 +1316,7 @@ export default function ReportsScreen() {
 const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
-    backgroundColor: '#1a1a1a',
+    backgroundColor: '#f9fafb',
   },
   container: {
     flex: 1,
@@ -1340,23 +1340,23 @@ const styles = StyleSheet.create({
   sectionTitle: {
     fontSize: 16,
     fontWeight: '600' as const,
-    color: 'rgba(255, 255, 255, 0.9)',
+    color: '#374151',
     marginBottom: 12,
   },
   picker: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    backgroundColor: 'rgba(79, 125, 255, 0.15)',
+    backgroundColor: '#ffffff',
     borderRadius: 12,
     borderWidth: 2,
-    borderColor: 'rgba(79, 125, 255, 0.3)',
+    borderColor: '#d1d5db',
     paddingHorizontal: 16,
     height: 48,
   },
   pickerText: {
     fontSize: 16,
-    color: '#ffffff',
+    color: '#111827',
   },
   pickerOptions: {
     position: 'absolute' as const,
@@ -1433,7 +1433,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   pdfButton: {
-    backgroundColor: '#4F7DFF',
+    backgroundColor: '#2563eb',
   },
   excelButton: {
     backgroundColor: '#10b981',
@@ -1444,16 +1444,19 @@ const styles = StyleSheet.create({
     fontWeight: '600' as const,
   },
   statsCard: {
-    backgroundColor: 'rgba(79, 125, 255, 0.15)',
+    backgroundColor: '#ffffff',
     borderRadius: 16,
     padding: 20,
-    borderWidth: 1,
-    borderColor: 'rgba(79, 125, 255, 0.3)',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 3,
   },
   statsTitle: {
     fontSize: 20,
     fontWeight: '700' as const,
-    color: '#ffffff',
+    color: '#111827',
     marginBottom: 16,
   },
   statsGrid: {
@@ -1465,24 +1468,24 @@ const styles = StyleSheet.create({
   statItem: {
     flex: 1,
     minWidth: '45%',
-    backgroundColor: 'rgba(255, 255, 255, 0.05)',
+    backgroundColor: '#f9fafb',
     borderRadius: 12,
     padding: 16,
   },
   statLabel: {
     fontSize: 12,
-    color: 'rgba(255, 255, 255, 0.7)',
+    color: '#6b7280',
     marginBottom: 8,
   },
   statValue: {
     fontSize: 24,
     fontWeight: '700' as const,
-    color: '#ffffff',
+    color: '#111827',
   },
   statValueHighlight: {
     fontSize: 24,
     fontWeight: '700' as const,
-    color: '#4F7DFF',
+    color: '#2563eb',
   },
   breakdown: {
     borderTopWidth: 1,
@@ -1492,7 +1495,7 @@ const styles = StyleSheet.create({
   breakdownTitle: {
     fontSize: 16,
     fontWeight: '600' as const,
-    color: 'rgba(255, 255, 255, 0.9)',
+    color: '#374151',
     marginBottom: 12,
   },
   breakdownRow: {
@@ -1503,7 +1506,7 @@ const styles = StyleSheet.create({
   },
   breakdownLabel: {
     fontSize: 14,
-    color: 'rgba(255, 255, 255, 0.7)',
+    color: '#6b7280',
   },
   breakdownValues: {
     flexDirection: 'row',
@@ -1512,14 +1515,14 @@ const styles = StyleSheet.create({
   breakdownHours: {
     fontSize: 14,
     fontWeight: '600' as const,
-    color: '#ffffff',
+    color: '#111827',
     minWidth: 60,
     textAlign: 'right',
   },
   breakdownEarnings: {
     fontSize: 14,
     fontWeight: '600' as const,
-    color: '#4F7DFF',
+    color: '#2563eb',
     minWidth: 80,
     textAlign: 'right',
   },
