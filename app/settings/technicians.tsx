@@ -26,9 +26,11 @@ export default function TechniciansManagementScreen() {
   const [showQRModal, setShowQRModal] = useState(false);
   const [copiedCode, setCopiedCode] = useState<string | null>(null);
 
-  const { data: configs = [], isLoading } = useQuery({
+  const { data: configs = [], isLoading, error } = useQuery({
     queryKey: ['technician-configs'],
     queryFn: getAllConfigs,
+    staleTime: 30000,
+    gcTime: 60000,
   });
 
   const toggleMutation = useMutation({
@@ -91,24 +93,7 @@ export default function TechniciansManagementScreen() {
     });
   };
 
-  if (isLoading) {
-    return (
-      <>
-        <Stack.Screen
-          options={{
-            headerShown: true,
-            title: 'Gestione Tecnici',
-            headerStyle: { backgroundColor: '#2563eb' },
-            headerTintColor: '#ffffff',
-            headerTitleStyle: { fontWeight: '700' as const },
-          }}
-        />
-        <View style={styles.loadingContainer}>
-          <Text style={styles.loadingText}>Caricamento...</Text>
-        </View>
-      </>
-    );
-  }
+  console.log('Technicians page - Loading:', isLoading, 'Configs:', configs.length, 'Error:', error);
 
   return (
     <>
@@ -229,7 +214,10 @@ export default function TechniciansManagementScreen() {
 
         <TouchableOpacity
           style={styles.fab}
-          onPress={() => router.push('./technicians/create' as any)}
+          onPress={() => {
+            console.log('FAB pressed - navigating to create');
+            router.push('/settings/technicians/create' as any);
+          }}
         >
           <Plus size={24} color="#ffffff" />
         </TouchableOpacity>
