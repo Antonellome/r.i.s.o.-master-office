@@ -150,7 +150,7 @@ export default function WorkHoursScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f9fafb',
+    backgroundColor: '#1a1a1a',
     justifyContent: 'center',
   },
   content: {
@@ -171,40 +171,40 @@ const styles = StyleSheet.create({
   label: {
     fontSize: 14,
     fontWeight: '600' as const,
-    color: '#374151',
+    color: 'rgba(255, 255, 255, 0.9)',
     marginBottom: 8,
   },
   picker: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    backgroundColor: '#ffffff',
+    backgroundColor: 'rgba(79, 125, 255, 0.1)',
     borderRadius: 12,
     borderWidth: 2,
-    borderColor: '#d1d5db',
+    borderColor: 'rgba(79, 125, 255, 0.3)',
     paddingHorizontal: 16,
     height: 48,
   },
   pickerText: {
     fontSize: 16,
-    color: '#111827',
+    color: '#ffffff',
   },
   pickerOptions: {
-    backgroundColor: '#ffffff',
+    backgroundColor: 'rgba(79, 125, 255, 0.15)',
     borderRadius: 12,
     borderWidth: 1,
-    borderColor: '#e5e7eb',
+    borderColor: 'rgba(79, 125, 255, 0.3)',
     marginTop: 8,
     overflow: 'hidden',
   },
   pickerOption: {
     padding: 16,
     borderBottomWidth: 1,
-    borderBottomColor: '#f3f4f6',
+    borderBottomColor: 'rgba(79, 125, 255, 0.2)',
   },
   pickerOptionText: {
     fontSize: 16,
-    color: '#111827',
+    color: '#ffffff',
   },
   buttonContainer: {
     flexDirection: 'row',
@@ -213,7 +213,7 @@ const styles = StyleSheet.create({
   },
   cancelButton: {
     flex: 1,
-    backgroundColor: '#f3f4f6',
+    backgroundColor: 'rgba(79, 125, 255, 0.2)',
     borderRadius: 12,
     paddingVertical: 16,
     alignItems: 'center',
@@ -222,7 +222,7 @@ const styles = StyleSheet.create({
   cancelButtonText: {
     fontSize: 16,
     fontWeight: '600' as const,
-    color: '#374151',
+    color: 'rgba(255, 255, 255, 0.9)',
   },
   saveButton: {
     flex: 1,
@@ -248,7 +248,7 @@ const styles = StyleSheet.create({
   },
   footerText: {
     fontSize: 12,
-    color: '#9ca3af',
+    color: 'rgba(255, 255, 255, 0.5)',
     fontStyle: 'italic' as const,
   },
 });

@@ -589,7 +589,7 @@ export default function StorageScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f9fafb',
+    backgroundColor: '#1a1a1a',
   },
   scrollView: {
     flex: 1,
@@ -604,7 +604,7 @@ const styles = StyleSheet.create({
   label: {
     fontSize: 14,
     fontWeight: '600' as const,
-    color: '#374151',
+    color: 'rgba(255, 255, 255, 0.9)',
     marginBottom: 8,
   },
   storageTypeContainer: {
@@ -616,10 +616,10 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#ffffff',
+    backgroundColor: 'rgba(79, 125, 255, 0.1)',
     borderRadius: 12,
     borderWidth: 2,
-    borderColor: '#2563eb',
+    borderColor: 'rgba(79, 125, 255, 0.3)',
     paddingVertical: 16,
     gap: 8,
   },
@@ -630,7 +630,7 @@ const styles = StyleSheet.create({
   storageTypeText: {
     fontSize: 12,
     fontWeight: '600' as const,
-    color: '#2563eb',
+    color: '#4F7DFF',
   },
   storageTypeTextActive: {
     color: '#ffffff',
@@ -643,10 +643,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#ffffff',
+    backgroundColor: 'rgba(79, 125, 255, 0.1)',
     borderRadius: 12,
     borderWidth: 2,
-    borderColor: '#2563eb',
+    borderColor: 'rgba(79, 125, 255, 0.3)',
     paddingVertical: 12,
     gap: 8,
   },
@@ -657,7 +657,7 @@ const styles = StyleSheet.create({
   providerText: {
     fontSize: 14,
     fontWeight: '600' as const,
-    color: '#2563eb',
+    color: '#4F7DFF',
   },
   providerTextActive: {
     color: '#ffffff',
@@ -680,33 +680,33 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    backgroundColor: '#ffffff',
+    backgroundColor: 'rgba(79, 125, 255, 0.1)',
     borderRadius: 12,
     borderWidth: 2,
-    borderColor: '#d1d5db',
+    borderColor: 'rgba(79, 125, 255, 0.3)',
     paddingHorizontal: 16,
     height: 48,
   },
   pickerText: {
     fontSize: 16,
-    color: '#111827',
+    color: '#ffffff',
   },
   pickerOptions: {
-    backgroundColor: '#ffffff',
+    backgroundColor: 'rgba(79, 125, 255, 0.15)',
     borderRadius: 12,
     borderWidth: 1,
-    borderColor: '#e5e7eb',
+    borderColor: 'rgba(79, 125, 255, 0.3)',
     marginTop: 8,
     overflow: 'hidden',
   },
   pickerOption: {
     padding: 16,
     borderBottomWidth: 1,
-    borderBottomColor: '#f3f4f6',
+    borderBottomColor: 'rgba(79, 125, 255, 0.2)',
   },
   pickerOptionText: {
     fontSize: 16,
-    color: '#111827',
+    color: '#ffffff',
   },
   backupButtons: {
     flexDirection: 'row',
@@ -736,13 +736,13 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     gap: 12,
     padding: 16,
-    backgroundColor: '#f9fafb',
+    backgroundColor: '#1a1a1a',
     borderTopWidth: 1,
-    borderTopColor: '#e5e7eb',
+    borderTopColor: 'rgba(79, 125, 255, 0.3)',
   },
   cancelButton: {
     flex: 1,
-    backgroundColor: '#f3f4f6',
+    backgroundColor: 'rgba(79, 125, 255, 0.2)',
     borderRadius: 12,
     paddingVertical: 16,
     alignItems: 'center',
@@ -751,7 +751,7 @@ const styles = StyleSheet.create({
   cancelButtonText: {
     fontSize: 16,
     fontWeight: '600' as const,
-    color: '#374151',
+    color: 'rgba(255, 255, 255, 0.9)',
   },
   saveButton: {
     flex: 1,

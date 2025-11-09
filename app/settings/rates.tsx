@@ -192,7 +192,7 @@ export default function RatesScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f9fafb',
+    backgroundColor: '#1a1a1a',
   },
   scrollView: {
     flex: 1,
@@ -211,7 +211,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    backgroundColor: '#ffffff',
+    backgroundColor: 'rgba(79, 125, 255, 0.1)',
     borderRadius: 12,
     paddingVertical: 16,
     paddingHorizontal: 16,
@@ -225,15 +225,15 @@ const styles = StyleSheet.create({
   rateLabel: {
     fontSize: 16,
     fontWeight: '500' as const,
-    color: '#374151',
+    color: 'rgba(255, 255, 255, 0.9)',
   },
   rateInputContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#f9fafb',
+    backgroundColor: 'rgba(79, 125, 255, 0.15)',
     borderRadius: 8,
     borderWidth: 2,
-    borderColor: '#d1d5db',
+    borderColor: 'rgba(79, 125, 255, 0.3)',
     paddingHorizontal: 12,
     height: 40,
     minWidth: 100,
@@ -241,13 +241,13 @@ const styles = StyleSheet.create({
   euroSymbol: {
     fontSize: 16,
     fontWeight: '600' as const,
-    color: '#6b7280',
+    color: 'rgba(255, 255, 255, 0.7)',
     marginRight: 4,
   },
   rateInput: {
     flex: 1,
     fontSize: 16,
-    color: '#111827',
+    color: '#ffffff',
   },
   resetContainer: {
     paddingHorizontal: 16,
@@ -258,17 +258,17 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#ffffff',
+    backgroundColor: 'rgba(79, 125, 255, 0.1)',
     borderRadius: 8,
     paddingVertical: 12,
     gap: 8,
     borderWidth: 1,
-    borderColor: '#d1d5db',
+    borderColor: 'rgba(79, 125, 255, 0.3)',
   },
   resetButtonText: {
     fontSize: 14,
     fontWeight: '500' as const,
-    color: '#6b7280',
+    color: 'rgba(255, 255, 255, 0.7)',
   },
   buttonContainer: {
     flexDirection: 'row',
@@ -277,7 +277,7 @@ const styles = StyleSheet.create({
   },
   cancelButton: {
     flex: 1,
-    backgroundColor: '#f3f4f6',
+    backgroundColor: 'rgba(79, 125, 255, 0.2)',
     borderRadius: 12,
     paddingVertical: 16,
     alignItems: 'center',
@@ -286,7 +286,7 @@ const styles = StyleSheet.create({
   cancelButtonText: {
     fontSize: 16,
     fontWeight: '600' as const,
-    color: '#374151',
+    color: 'rgba(255, 255, 255, 0.9)',
   },
   saveButton: {
     flex: 1,
@@ -312,7 +312,7 @@ const styles = StyleSheet.create({
   },
   footerText: {
     fontSize: 12,
-    color: '#9ca3af',
+    color: 'rgba(255, 255, 255, 0.5)',
     fontStyle: 'italic' as const,
   },
 });
