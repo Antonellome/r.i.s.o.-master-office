@@ -1089,14 +1089,15 @@ export default function ReportsScreen() {
       }} />
       <View style={styles.wrapper}>
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
-      <View style={[styles.section, { zIndex: reportTypeZIndex }]}>
+      <View style={[styles.section, { zIndex: reportTypeZIndex, marginBottom: showReportTypePicker ? 180 : 24 }]}>
         <Text style={styles.sectionTitle}>Tipo di Report</Text>
         <TouchableOpacity
           style={styles.picker}
           onPress={() => {
             setShowReportTypePicker(!showReportTypePicker);
-            setReportTypeZIndex(showReportTypePicker ? 1 : 1000);
+            setReportTypeZIndex(showReportTypePicker ? 1 : 2000);
             setMonthZIndex(1);
+            setShowMonthPicker(false);
           }}
         >
           <Text style={styles.pickerText}>
@@ -1135,14 +1136,15 @@ export default function ReportsScreen() {
           <DatePicker value={selectedDate} onChange={setSelectedDate} label="Data" />
         </View>
       ) : (
-        <View style={[styles.section, { zIndex: monthZIndex }]}>
+        <View style={[styles.section, { zIndex: monthZIndex, marginBottom: showMonthPicker ? 280 : 24 }]}>
           <Text style={styles.sectionTitle}>Mese</Text>
           <TouchableOpacity
             style={styles.picker}
             onPress={() => {
               setShowMonthPicker(!showMonthPicker);
-              setMonthZIndex(showMonthPicker ? 1 : 1000);
+              setMonthZIndex(showMonthPicker ? 1 : 2000);
               setReportTypeZIndex(1);
+              setShowReportTypePicker(false);
             }}
           >
             <View style={{ flexDirection: 'row', alignItems: 'center' }}>
@@ -1363,19 +1365,19 @@ const styles = StyleSheet.create({
     top: 56,
     left: 0,
     right: 0,
-    backgroundColor: 'rgba(79, 125, 255, 0.15)',
+    backgroundColor: 'rgba(79, 125, 255, 0.95)',
     borderRadius: 12,
-    borderWidth: 1,
-    borderColor: 'rgba(79, 125, 255, 0.3)',
+    borderWidth: 2,
+    borderColor: 'rgba(79, 125, 255, 0.6)',
     marginTop: 8,
     overflow: 'hidden',
-    zIndex: 1000,
+    zIndex: 3000,
     maxHeight: 300,
     shadowColor: '#4F7DFF',
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.25,
-    shadowRadius: 8,
-    elevation: 5,
+    shadowOffset: { width: 0, height: 8 },
+    shadowOpacity: 0.4,
+    shadowRadius: 16,
+    elevation: 10,
   },
   pickerOption: {
     padding: 16,
