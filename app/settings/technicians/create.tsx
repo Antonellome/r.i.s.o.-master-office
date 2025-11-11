@@ -28,9 +28,6 @@ export default function CreateTechnicianScreen() {
   const [userId, setUserId] = useState('');
   const [selectedShips, setSelectedShips] = useState<string[]>([]);
   const [selectedLocations, setSelectedLocations] = useState<string[]>([]);
-  const [workStartTime, setWorkStartTime] = useState('08:00');
-  const [workEndTime, setWorkEndTime] = useState('17:00');
-  const [standardBreakMinutes, setStandardBreakMinutes] = useState('60');
 
   const ships = settings.ships;
   const locations = settings.locations;
@@ -90,9 +87,9 @@ export default function CreateTechnicianScreen() {
       ships: selectedShips,
       locations: selectedLocations,
       work: {
-        defaultStartTime: workStartTime,
-        defaultEndTime: workEndTime,
-        defaultPauseMinutes: parseInt(standardBreakMinutes, 10) || 60,
+        defaultStartTime: '08:00',
+        defaultEndTime: '17:00',
+        defaultPauseMinutes: 60,
         hourlyRates: [],
       },
       apiKey: generateActivationCode(),
@@ -152,46 +149,6 @@ export default function CreateTechnicianScreen() {
                 placeholder="Es: mario.rossi"
                 placeholderTextColor="#9ca3af"
                 autoCapitalize="none"
-              />
-            </View>
-          </View>
-
-          <View style={styles.section}>
-            <Text style={styles.sectionTitle}>Orari di Lavoro</Text>
-
-            <View style={styles.row}>
-              <View style={[styles.field, styles.halfWidth]}>
-                <Text style={styles.label}>Inizio Turno</Text>
-                <TextInput
-                  style={styles.input}
-                  value={workStartTime}
-                  onChangeText={setWorkStartTime}
-                  placeholder="HH:MM"
-                  placeholderTextColor="#9ca3af"
-                />
-              </View>
-
-              <View style={[styles.field, styles.halfWidth]}>
-                <Text style={styles.label}>Fine Turno</Text>
-                <TextInput
-                  style={styles.input}
-                  value={workEndTime}
-                  onChangeText={setWorkEndTime}
-                  placeholder="HH:MM"
-                  placeholderTextColor="#9ca3af"
-                />
-              </View>
-            </View>
-
-            <View style={styles.field}>
-              <Text style={styles.label}>Pausa Standard (minuti)</Text>
-              <TextInput
-                style={styles.input}
-                value={standardBreakMinutes}
-                onChangeText={setStandardBreakMinutes}
-                placeholder="60"
-                placeholderTextColor="#9ca3af"
-                keyboardType="numeric"
               />
             </View>
           </View>
