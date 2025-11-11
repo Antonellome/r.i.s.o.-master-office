@@ -10,7 +10,7 @@ import {
   Modal,
   Switch,
 } from 'react-native';
-import { Stack, useRouter } from 'expo-router';
+import { Stack, useRouter, Link } from 'expo-router';
 import { Plus, Trash2, Edit2, Copy, Check } from 'lucide-react-native';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 
@@ -212,15 +212,11 @@ export default function TechniciansManagementScreen() {
           )}
         </ScrollView>
 
-        <TouchableOpacity
-          style={styles.fab}
-          onPress={() => {
-            console.log('FAB pressed - navigating to create');
-            router.push('/settings/technicians/create');
-          }}
-        >
-          <Plus size={24} color="#ffffff" />
-        </TouchableOpacity>
+        <Link href="/settings/technicians/create" asChild>
+          <TouchableOpacity style={styles.fab}>
+            <Plus size={24} color="#ffffff" />
+          </TouchableOpacity>
+        </Link>
 
         <Modal visible={showQRModal} transparent animationType="fade">
           <TouchableOpacity
