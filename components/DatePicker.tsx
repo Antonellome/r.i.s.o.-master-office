@@ -124,7 +124,7 @@ export default function DatePicker({ value, onChange, label }: DatePickerProps) 
     <View>
       {label && <Text style={styles.label}>{label}</Text>}
       <TouchableOpacity style={styles.input} onPress={() => setIsVisible(true)}>
-        <Calendar size={20} color="#6b7280" style={styles.icon} />
+        <Calendar size={20} color="#ffffff" style={styles.icon} />
         <Text style={styles.inputText}>{formatDate(value)}</Text>
       </TouchableOpacity>
 
@@ -182,20 +182,21 @@ const styles = StyleSheet.create({
   input: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#ffffff',
+    backgroundColor: 'rgba(79, 125, 255, 0.1)',
     borderRadius: 12,
-    borderWidth: 1,
-    borderColor: '#e5e7eb',
+    borderWidth: 2,
+    borderColor: 'rgba(79, 125, 255, 0.3)',
     paddingHorizontal: 12,
     height: 48,
   },
   icon: {
     marginRight: 8,
+    color: '#ffffff',
   },
   inputText: {
     flex: 1,
     fontSize: 16,
-    color: '#111827',
+    color: '#ffffff',
   },
   modalOverlay: {
     flex: 1,

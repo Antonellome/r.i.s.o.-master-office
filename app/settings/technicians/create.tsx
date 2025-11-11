@@ -7,10 +7,13 @@ import {
   TouchableOpacity,
   ScrollView,
   Alert,
-  ActivityIndicator,
+  KeyboardAvoidingView,
+  Platform,
+  TouchableWithoutFeedback,
+  Keyboard,
 } from 'react-native';
-import { Stack, useRouter } from 'expo-router';
-import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { Stack, router } from 'expo-router';
+import { useQueryClient } from '@tanstack/react-query';
 import { Save } from 'lucide-react-native';
 
 import { saveConfigForCode } from '@/utils/firebase';
@@ -19,7 +22,6 @@ import { useApp } from '@/contexts/AppContext';
 import type { UserConfig } from '@/utils/firebase';
 
 export default function CreateTechnicianScreen() {
-  const router = useRouter();
   const queryClient = useQueryClient();
   const { settings } = useApp();
 
@@ -28,29 +30,14 @@ export default function CreateTechnicianScreen() {
   const [userId, setUserId] = useState('');
   const [selectedShips, setSelectedShips] = useState<string[]>([]);
   const [selectedLocations, setSelectedLocations] = useState<string[]>([]);
+  const [isSaving, setIsSaving] = useState(false);
 
   const ships = settings.ships;
   const locations = settings.locations;
 
-  const createMutation = useMutation({
-    mutationFn: async (config: UserConfig) => {
-      const activationCode = generateActivationCode();
-      await saveConfigForCode(activationCode, config);
-      return activationCode;
-    },
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['technician-configs'] });
-      Alert.alert('Successo', 'Configurazione tecnico creata con successo', [
-        {
-          text: 'OK',
-          onPress: () => router.back(),
-        },
-      ]);
-    },
-    onError: (error) => {
-      Alert.alert('Errore', `Impossibile creare la configurazione: ${error.message}`);
-    },
-  });
+  const handleCancel = () => {
+    router.back();
+  };
 
   const toggleShip = (shipId: string) => {
     setSelectedShips((prev) =>
@@ -64,7 +51,7 @@ export default function CreateTechnicianScreen() {
     );
   };
 
-  const handleSave = () => {
+  const handleSave = async () => {
     if (!technicianName.trim()) {
       Alert.alert('Errore', 'Inserisci il nome del tecnico');
       return;
@@ -80,26 +67,38 @@ export default function CreateTechnicianScreen() {
       return;
     }
 
-    const config: UserConfig = {
-      technicianName: technicianName.trim(),
-      companyName: companyName.trim(),
-      userId: userId.trim(),
-      ships: selectedShips,
-      locations: selectedLocations,
-      work: {
-        defaultStartTime: '08:00',
-        defaultEndTime: '17:00',
-        defaultPauseMinutes: 60,
-        hourlyRates: [],
-      },
-      apiKey: generateActivationCode(),
-      serverUrl: '',
-      autoSync: false,
-      active: true,
-      createdAt: Date.now(),
-    };
+    setIsSaving(true);
+    try {
+      const config: UserConfig = {
+        technicianName: technicianName.trim(),
+        companyName: companyName.trim(),
+        userId: userId.trim(),
+        ships: selectedShips,
+        locations: selectedLocations,
+        work: {
+          defaultStartTime: '08:00',
+          defaultEndTime: '17:00',
+          defaultPauseMinutes: 60,
+          hourlyRates: [],
+        },
+        apiKey: generateActivationCode(),
+        serverUrl: '',
+        autoSync: false,
+        active: true,
+        createdAt: Date.now(),
+      };
 
-    createMutation.mutate(config);
+      const activationCode = generateActivationCode();
+      await saveConfigForCode(activationCode, config);
+      
+      queryClient.invalidateQueries({ queryKey: ['technician-configs'] });
+      Alert.alert('Successo', 'Configurazione tecnico creata con successo');
+      router.back();
+    } catch (error) {
+      Alert.alert('Errore', 'Impossibile creare la configurazione');
+    } finally {
+      setIsSaving(false);
+    }
   };
 
   return (
@@ -113,8 +112,18 @@ export default function CreateTechnicianScreen() {
           headerTitleStyle: { fontWeight: '700' as const },
         }}
       />
-      <View style={styles.container}>
-        <ScrollView style={styles.scrollView} contentContainerStyle={styles.content}>
+      <KeyboardAvoidingView 
+        style={styles.container}
+        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+        keyboardVerticalOffset={Platform.OS === 'ios' ? 90 : 0}
+      >
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+          <View style={styles.container}>
+            <ScrollView 
+              style={styles.scrollView} 
+              contentContainerStyle={styles.content}
+              keyboardShouldPersistTaps="handled"
+            >
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>Informazioni Base</Text>
 
@@ -153,85 +162,86 @@ export default function CreateTechnicianScreen() {
             </View>
           </View>
 
-          <View style={styles.section}>
-            <Text style={styles.sectionTitle}>Navi Accessibili</Text>
-            {ships.length === 0 ? (
-              <Text style={styles.emptyText}>Nessuna nave disponibile</Text>
-            ) : (
-              ships.map((ship: string) => (
-                <TouchableOpacity
-                  key={ship}
-                  style={styles.checkboxRow}
-                  onPress={() => toggleShip(ship)}
-                >
-                  <View
-                    style={[
-                      styles.checkbox,
-                      selectedShips.includes(ship) && styles.checkboxChecked,
-                    ]}
-                  >
-                    {selectedShips.includes(ship) && (
-                      <View style={styles.checkboxInner} />
-                    )}
-                  </View>
-                  <Text style={styles.checkboxLabel}>{ship}</Text>
-                </TouchableOpacity>
-              ))
-            )}
+              <View style={styles.section}>
+                <Text style={styles.sectionTitle}>Navi Accessibili</Text>
+                {ships.length === 0 ? (
+                  <Text style={styles.emptyText}>Nessuna nave disponibile</Text>
+                ) : (
+                  ships.map((ship: string) => (
+                    <TouchableOpacity
+                      key={ship}
+                      style={styles.checkboxRow}
+                      onPress={() => toggleShip(ship)}
+                    >
+                      <View
+                        style={[
+                          styles.checkbox,
+                          selectedShips.includes(ship) && styles.checkboxChecked,
+                        ]}
+                      >
+                        {selectedShips.includes(ship) && (
+                          <View style={styles.checkboxInner} />
+                        )}
+                      </View>
+                      <Text style={styles.checkboxLabel}>{ship}</Text>
+                    </TouchableOpacity>
+                  ))
+                )}
+              </View>
+
+              <View style={styles.section}>
+                <Text style={styles.sectionTitle}>Cantieri Accessibili</Text>
+                {locations.length === 0 ? (
+                  <Text style={styles.emptyText}>Nessun cantiere disponibile</Text>
+                ) : (
+                  locations.map((location: string) => (
+                    <TouchableOpacity
+                      key={location}
+                      style={styles.checkboxRow}
+                      onPress={() => toggleLocation(location)}
+                    >
+                      <View
+                        style={[
+                          styles.checkbox,
+                          selectedLocations.includes(location) && styles.checkboxChecked,
+                        ]}
+                      >
+                        {selectedLocations.includes(location) && (
+                          <View style={styles.checkboxInner} />
+                        )}
+                      </View>
+                      <Text style={styles.checkboxLabel}>{location}</Text>
+                    </TouchableOpacity>
+                  ))
+                )}
+              </View>
+            </ScrollView>
+
+            <View style={styles.buttonContainer}>
+              <TouchableOpacity
+                style={styles.cancelButton}
+                onPress={handleCancel}
+              >
+                <Text style={styles.cancelButtonText}>Annulla</Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                style={[styles.saveButton, isSaving && styles.saveButtonDisabled]}
+                onPress={handleSave}
+                disabled={isSaving}
+              >
+                <Save size={20} color="#ffffff" />
+                <Text style={styles.saveButtonText}>
+                  {isSaving ? 'Salvataggio...' : 'Salva'}
+                </Text>
+              </TouchableOpacity>
+            </View>
+
+            <View style={styles.footer}>
+              <Text style={styles.footerText}>by AS</Text>
+            </View>
           </View>
-
-          <View style={styles.section}>
-            <Text style={styles.sectionTitle}>Cantieri Accessibili</Text>
-            {locations.length === 0 ? (
-              <Text style={styles.emptyText}>Nessun cantiere disponibile</Text>
-            ) : (
-              locations.map((location: string) => (
-                <TouchableOpacity
-                  key={location}
-                  style={styles.checkboxRow}
-                  onPress={() => toggleLocation(location)}
-                >
-                  <View
-                    style={[
-                      styles.checkbox,
-                      selectedLocations.includes(location) && styles.checkboxChecked,
-                    ]}
-                  >
-                    {selectedLocations.includes(location) && (
-                      <View style={styles.checkboxInner} />
-                    )}
-                  </View>
-                  <Text style={styles.checkboxLabel}>{location}</Text>
-                </TouchableOpacity>
-              ))
-            )}
-          </View>
-        </ScrollView>
-
-        <View style={styles.footer}>
-          <TouchableOpacity
-            style={[styles.button, styles.cancelButton]}
-            onPress={() => router.back()}
-          >
-            <Text style={styles.cancelButtonText}>Annulla</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity
-            style={[styles.button, styles.saveButton]}
-            onPress={handleSave}
-            disabled={createMutation.isPending}
-          >
-            {createMutation.isPending ? (
-              <ActivityIndicator color="#ffffff" />
-            ) : (
-              <>
-                <Save size={18} color="#ffffff" />
-                <Text style={styles.saveButtonText}>Salva</Text>
-              </>
-            )}
-          </TouchableOpacity>
-        </View>
-      </View>
+        </TouchableWithoutFeedback>
+      </KeyboardAvoidingView>
     </>
   );
 }
@@ -245,8 +255,8 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   content: {
+    flex: 1,
     padding: 16,
-    paddingBottom: 100,
   },
   section: {
     backgroundColor: 'rgba(79, 125, 255, 0.15)',
@@ -280,13 +290,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: '#ffffff',
   },
-  row: {
-    flexDirection: 'row',
-    gap: 12,
-  },
-  halfWidth: {
-    flex: 1,
-  },
+
   checkboxRow: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -326,30 +330,18 @@ const styles = StyleSheet.create({
     textAlign: 'center' as const,
     paddingVertical: 20,
   },
-  footer: {
-    position: 'absolute' as const,
-    bottom: 0,
-    left: 0,
-    right: 0,
+  buttonContainer: {
     flexDirection: 'row',
     gap: 12,
     padding: 16,
-    backgroundColor: '#1a1a1a',
-    borderTopWidth: 1,
-    borderTopColor: 'rgba(79, 125, 255, 0.3)',
-  },
-  button: {
-    flex: 1,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: 8,
-    paddingVertical: 14,
-    borderRadius: 12,
   },
   cancelButton: {
+    flex: 1,
     backgroundColor: 'rgba(79, 125, 255, 0.2)',
-    borderWidth: 0,
+    borderRadius: 12,
+    paddingVertical: 16,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   cancelButtonText: {
     fontSize: 16,
@@ -357,11 +349,30 @@ const styles = StyleSheet.create({
     color: 'rgba(255, 255, 255, 0.9)',
   },
   saveButton: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
     backgroundColor: '#2563eb',
+    borderRadius: 12,
+    paddingVertical: 16,
+    gap: 8,
+  },
+  saveButtonDisabled: {
+    opacity: 0.6,
   },
   saveButtonText: {
-    fontSize: 16,
-    fontWeight: '600' as const,
     color: '#ffffff',
+    fontSize: 16,
+    fontWeight: '700' as const,
+  },
+  footer: {
+    padding: 16,
+    alignItems: 'center',
+  },
+  footerText: {
+    fontSize: 12,
+    color: 'rgba(255, 255, 255, 0.5)',
+    fontStyle: 'italic' as const,
   },
 });
